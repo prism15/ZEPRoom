@@ -1,0 +1,32 @@
+.sidenav{
+  background-color: #b7d7e8;
+  color: #36486b;
+}
+mat-sidenav{
+  width: 200px;
+}
+.example-container{
+  height: 100%;
+}
+.logout{
+  float: right;
+}
+.toolbar{
+  color: aliceblue;
+  background-color:#36486b;
+}
+.welcome{
+  text-align: center;
+  padding-top: 20%;
+}
+#heading{
+  font-family: 'Abril Fatface', cursive;
+  font-size:60px;
+  color: #36486b;
+}
+#para{
+  
+  margin-top: 5px;
+  font-size: 20px;
+  color: #36486b;
+}

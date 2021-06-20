@@ -1,0 +1,29 @@
+<router-outlet></router-outlet>
+<div class="row " style="padding-top: 2%; padding-left: 2%; padding-right: 2%;" >
+  <div class="card col-lg-12 Card " *ngFor="let room of room">
+    <div class="row g-0">
+      <div class="col-md-4" >
+        <div class="container" style=" height: 200px; width: 200px; margin-left: 0px;">
+          <img  alt="..." src="{{room.image}}" class="card-image">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <!--  -->
+          <p class="card-title" style="font-size: medium;"> <label for=""> <b>Room No:</b> </label> {{room.roomNumber}}</p>
+          <i style="color: red;" *ngIf="room.startDate!='null'">*Note : this room is available till {{room.startDate}}</i>
+          <label for=""><b style="font-size: medium;">Description:</b></label><p class="card-text" style="font-size: medium;">{{room.description}}</p>
+          <p class="card-text" style="font-size: medium;"><label for=""><b>Charges : </b></label>{{room.charges}}</p>
+          <p class="card-text" style="font-size: medium;">
+            <label for="">
+              <b>Type:</b>
+            </label>
+            &nbsp;&nbsp;{{room.Type}}
+            <a class="btn btn-danger" style="position: absolute; bottom: 8px; right: 8px;" routerLink="./bookroom" (click)="getRoomDetails(room._id,room.charges,room.roomNumber)">Book Now</a>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

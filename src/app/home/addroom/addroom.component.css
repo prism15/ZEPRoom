@@ -1,0 +1,19 @@
+input[type=number]{
+    width: 13rem;
+    border-radius: 1%;
+    border: 2px solid black;
+}
+textarea{
+    
+    border: 2px solid black;
+}
+.room-container{
+    padding: 5%;
+}
+#description{
+    resize: none;
+}
+.price{
+    display: inline-table ;
+}
+

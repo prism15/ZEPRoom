@@ -1,0 +1,15 @@
+<div class="card-container">
+    <div class="row">
+        <div class="card col-lg-12" *ngFor="let vacantroom of vacantrooms">
+            <div class="card-body">
+              <h2 class="card-title">{{vacantroom.Name}}</h2>
+              <h3 class="card-subtitle mb-2 text-muted"> <label for="">RoomNo.</label>&nbsp;&nbsp; {{vacantroom.roomNumber}}</h3>
+              <p class="card-text"><label for=""><b>Phone :</b></label>&nbsp;&nbsp;{{vacantroom.Phone}}</p>
+              <p class="card-text"> <label for=""><b>start Date:</b></label>&nbsp;&nbsp;{{vacantroom.startDate | date : 'dd-MM-yyyy'}}&nbsp;&nbsp;To &nbsp;&nbsp; <label for=""><b>end Date:</b></label>&nbsp;&nbsp;{{vacantroom.endDate | date : 'dd-MM-yyyy'}} </p>
+              <a class="btn btn-success" style="position: absolute; bottom: 8px; right: 1rem;" (click)="makevacant(vacantroom.roomid)">Vacant</a>
+              <!-- <a class="btn btn-warning" style="position: absolute; bottom: 8px; right: 7rem;">Edit</a>
+              <a class="btn btn-danger" style="position: absolute; bottom: 8px; right: 11rem;">Delete</a> -->
+            </div>
+        </div>
+    </div>
+</div>

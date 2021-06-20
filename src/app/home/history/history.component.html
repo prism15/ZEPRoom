@@ -1,0 +1,43 @@
+<div class="History-container">
+    <div class="form-group row"></div>
+    <div style="margin-left: 85%;">
+        <div>
+            <input type="radio" name="dateFilter" value="filter" (change)="filter($event)">
+            <label for="Date-filter">Filter Date</label>
+        </div>
+        <div class="form-group date-filter" *ngIf="this.filtervalue == 'filter'">
+            <label for="startDate">Start Date</label>
+            <div>
+                <input type="date">
+            </div>
+            <label for="endDate" style="padding-top: 1%;">End Date</label>
+            <div>
+                <input type="date">
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group row search-container">
+        <label for="search" class="col-sm-2 col-form-label" style="text-align : left; left: 8rem; font-size: medium;">Search</label>
+        <div class="col-sm-6">
+            <input type="text" [(ngModel)]="searchValue" style="align-content: center;"  class="form-control search" id="search"/>
+        </div>
+    </div>
+    <hr style="width: 70rem;" class="rule">
+    <div class="card-container">
+        <div class="row">
+            <div class="card col-lg-12 Card" *ngFor="let history of history | searchfilter: searchValue">
+                <div class="card-body">
+                  <h2 class="card-title">{{history.Name}}</h2>
+                  <h3 class="card-subtitle mb-2 text-muted"> <label for="">RoomNo.</label>&nbsp;&nbsp; {{history.roomNumber}}</h3>
+                  <h4 class="card-text"><label for=""><b>Phone :</b></label>&nbsp;&nbsp;{{history.Phone}}</h4>
+                  <h4 class="card-text"><label for=""><b>Document :</b></label>&nbsp;&nbsp;{{history.documentName}}</h4>
+                  <h4 class="card-text"><label for=""><b>Document Number:</b></label>&nbsp;&nbsp;{{history.documentNumber}}</h4>
+                  <h4 class="card-text"><label for=""><b>From:</b></label>&nbsp;&nbsp;{{history.startDate | date : 'dd-MM-yyyy'}}&nbsp;&nbsp;&nbsp;<label for=""><b>To</b></label>&nbsp;&nbsp;&nbsp;{{history.endDate | date : 'dd-MM-yyyy'}}</h4>
+                  <h4 class="card-text"><label for=""><b>Charges:</b></label>&nbsp;&nbsp;{{history.Amount}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

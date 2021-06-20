@@ -1,0 +1,31 @@
+<div class="room-container">
+    <form (submit)="addRoom($event)">
+        <div class="form-group">
+            <button  type="button"  class="btn btn-primary" (click)="imageInput()">+ Add Image</button>
+        </div>
+        <div class="form-group" *ngIf="addImg">
+            <input #file type="file" enctype="multipart/form-data" name="image" id="image" accept=".png, .jpeg, .jpg" (change)="preview(file.files)" (change)="onImagePicked($event)">
+            <img [src]="imageURL" height="200" style="display: inline-block;" *ngIf="imageURL">
+        </div>
+        <div class="form-group">
+            <label for=""><b style="font-size: medium;">Room Number</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="number"  name="roomnumber" id="roomnumber">
+        </div>
+        <div class="form-group" name="roomType" >
+            <label for=""> <b style="font-size: medium;">Luxory</b></label>&nbsp;<input type="radio" name="roomtype1" (change)="getSelected($event)" id="roomtype1" value="Luxory">&nbsp;&nbsp;&nbsp; 
+            <label for=""> <b style="font-size: medium;">Delux</b></label>&nbsp;<input type="radio" name="roomtype1" (change)="getSelected($event)" id="roomtype1" value="Delux">&nbsp;&nbsp;&nbsp; 
+            <label for=""> <b style="font-size: medium;">Super Delux</b></label>&nbsp;<input type="radio" name="roomtype1" (change)="getSelected($event)" id="roomtype2" value="SuperDelux">  
+        </div>
+        
+        <div class="form-group">
+            <textarea class="form-control"  name="description" id="description" style="width: 700px; height: 100px;" placeholder="Enter Room description"></textarea>
+        </div>
+        <div class="form-group price">
+            <label for=""> <b style="font-size: medium;">Charges</b> </label>
+            <input type="number" class="form-control" name="charges" id="charges" placeholder="Enter per day charges">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-danger mt-1">Add Room</button>
+        </div>
+    </form>
+</div>

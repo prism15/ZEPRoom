@@ -1,0 +1,42 @@
+<div class="bookroom-container">
+    <form (submit)="bookRoom($event)"><!--you removed $event from addRoom-->  
+        <div class="form-group">
+            <label for=""><b style="font-size: medium;">Name</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="text" name="customerName" id="customerName" placeholder="Enter Customer Name" required>
+        </div>
+        <div class="form-group">
+            <label for=""><b style="font-size: medium;">Phone no.</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="number" name="phone" id="phone" placeholder="Enter Phone No." minlength="10" required>
+        </div>
+        <div class="form-group">
+            <label for=""><b style="font-size: medium;">Adhaar card</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="docname" id="docname" value="AdhaarCard"  (change)="setvalue($event)">&nbsp;&nbsp;&nbsp;
+            <label for=""><b style="font-size: medium;">Pan card</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="docname" id="docname" value="PanCard"  (change)="setvalue($event)">&nbsp;&nbsp;&nbsp;
+            <label for=""><b style="font-size: medium;">Driving licence</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="docname" id="docname" value="DrivingLicence" (change)="setvalue($event)">
+        </div>
+        <div class="form-group" >
+            <input type="number" name="adhaarno" id="adhaarno" *ngIf="showcontent=== 'AdhaarCard'" minlength="12" placeholder="Enter Adhaar no">
+            <input type="text" name="panno" id="panno" *ngIf="showcontent=== 'PanCard'" minlength="10" placeholder="Enter Pan No">
+            <input type="text" name="dno" id="dno" *ngIf="showcontent=== 'DrivingLicence'" minlength="16" placeholder="Enter licence No">
+        </div>
+        <div class="form-group">
+            <label for=""><b style="font-size: medium;">Start-Date</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="date" name="startdate" id="startdate" required [(ngModel)]="startdate">
+        </div>
+        <div class="form-group">
+            <label for=""><b style="font-size: medium;">End-Date</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="date" name="enddate" id="enddate" [(ngModel)]="enddate" required (change)="getTotalDays()">
+        </div>
+        <div class="form-group" *ngIf="days">
+            <label for=""><b style="font-size: medium;">Payable:</b></label>&nbsp;&nbsp;&nbsp;
+            <h2>{{days}} X {{roomcharges}} = {{payable}}</h2>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger" style="position: absolute;">Book</button>
+        </div>
+    </form>
+</div>
+
+
